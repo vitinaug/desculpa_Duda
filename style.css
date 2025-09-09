@@ -23,7 +23,7 @@ body {
 
 body.envelope-opened {
     background-image: url('./images/campo.png');
-    background-color: #f0f0f0;
+    background-color: #106dcc;
     background-size: 110%;
     background-position: center 75%;
 }

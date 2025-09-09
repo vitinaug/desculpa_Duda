@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
     const petalContainer = document.getElementById('petal-container');
 
-    let scrollInterval;
     let petalGenerationInterval;
 
     const petalColors = ['red', 'yellow', 'violet', 'white'];
@@ -15,11 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         body.classList.toggle('envelope-opened', isOpening);
 
         if (isOpening) {
-            setTimeout(startAutoScroll, 1000);
             setTimeout(() => { letter.scrollTop = 0; }, 10);
             startPetalRain();
         } else {
-            stopAutoScroll();
             letter.scrollTop = 0;
             stopPetalRain();
         }
@@ -59,22 +56,5 @@ document.addEventListener('DOMContentLoaded', function() {
         if (petalContainer) {
             petalContainer.innerHTML = '';
         }
-    }
-
-    function startAutoScroll() {
-        stopAutoScroll();
-        const letterContent = document.querySelector('.letter-content');
-        
-        scrollInterval = setInterval(function() {
-            if (letter.scrollTop < letterContent.scrollHeight - letter.clientHeight) {
-                letter.scrollTop += 1;
-            } else {
-                stopAutoScroll();
-            }
-        }, 30);
-    }
-
-    function stopAutoScroll() {
-        clearInterval(scrollInterval);
     }
 });
